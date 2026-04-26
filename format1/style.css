@@ -1,0 +1,427 @@
+/* ============================================
+   VARIABLES & BASE STYLES
+   ============================================ */
+
+:root {
+    --primary-color: #1a365d;
+    --secondary-color: #2c5282;
+    --accent-color: #3182ce;
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-tertiary: #718096;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7fafc;
+    --border-color: #cbd5e0;
+    --line-color: #e2e8f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: var(--bg-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+    border-bottom: 3px solid var(--primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.header-main h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.headline {
+    font-size: 16px;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.header-contact {
+    text-align: right;
+    font-size: 13px;
+}
+
+.header-contact p {
+    margin: 4px 0;
+    color: var(--text-secondary);
+}
+
+.header-contact a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.header-contact a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+
+.section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.section > p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* ============================================
+   METRICS SECTION
+   ============================================ */
+
+.metrics-section {
+    background-color: var(--bg-secondary);
+    padding: 15px;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+.metrics-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.metric-item {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.metric-item strong {
+    font-size: 18px;
+    color: var(--accent-color);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* ============================================
+   EXPERIENCE
+   ============================================ */
+
+.job {
+    margin-bottom: 20px;
+    page-break-inside: avoid;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    gap: 20px;
+}
+
+.job-title-company h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 3px 0;
+}
+
+.job-title-company .company {
+    font-size: 14px;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+.job-date {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.job-responsibilities {
+    list-style: none;
+    margin: 0;
+}
+
+.job-responsibilities li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.job-responsibilities li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.job-responsibilities li strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ============================================
+   SKILLS SECTION
+   ============================================ */
+
+.skills-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.skill-group {
+    margin-bottom: 8px;
+}
+
+.skill-group h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.skill-group p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ============================================
+   ACHIEVEMENTS
+   ============================================ */
+
+.achievement {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line-color);
+}
+
+.achievement:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.achievement h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.achievement p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ============================================
+   EDUCATION
+   ============================================ */
+
+.education-item {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line-color);
+}
+
+.education-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.education-item h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.edu-detail {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid var(--line-color);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.footer p {
+    margin: 4px 0;
+}
+
+.footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    body {
+        background-color: white;
+    }
+
+    .container {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .header {
+        page-break-after: avoid;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+
+    .job {
+        page-break-inside: avoid;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 15px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-main h1 {
+        font-size: 24px;
+    }
+
+    .header-contact {
+        text-align: left;
+    }
+
+    .job-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .job-date {
+        white-space: normal;
+    }
+
+    .metrics-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .skills-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 10px;
+    }
+
+    .header-main h1 {
+        font-size: 20px;
+    }
+
+    .headline {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 14px;
+    }
+
+    .job-title-company h3 {
+        font-size: 14px;
+    }
+
+    .job-responsibilities li {
+        font-size: 13px;
+    }
+
+    .metrics-list {
+        grid-template-columns: 1fr;
+    }
+}
