@@ -1,0 +1,223 @@
+/* Minimalist Portfolio Styles */
+:root {
+    --text-color: #2c3e50;
+    --light-text: #7f8c8d;
+    --accent: #3498db;
+    --border: #ecf0f1;
+    --background: #ffffff;
+    --section-bg: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--background);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Header */
+.hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.contact {
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+.contact a {
+    color: var(--accent);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+section {
+    margin-bottom: 50px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* Experience */
+.job {
+    margin-bottom: 30px;
+}
+
+.job h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.company {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.job ul {
+    margin-left: 20px;
+}
+
+.job li {
+    margin-bottom: 8px;
+    text-align: justify;
+}
+
+/* Projects */
+.project {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--section-bg);
+    border-radius: 4px;
+}
+
+.project h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.project p {
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.project strong {
+    color: var(--text-color);
+}
+
+.project a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.project a:hover {
+    text-decoration: underline;
+}
+
+/* Skills */
+.skill-category {
+    margin-bottom: 20px;
+}
+
+.skill-category h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.skill-category p {
+    color: var(--light-text);
+    font-size: 0.95rem;
+}
+
+/* Education */
+.edu-item h3 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.edu-item p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+/* Certifications & Achievements */
+.certifications ul,
+.achievements ul {
+    margin-left: 20px;
+}
+
+.certifications li,
+.achievements li {
+    margin-bottom: 8px;
+    text-align: justify;
+}
+
+/* Links */
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .contact {
+        font-size: 0.85rem;
+    }
+
+    section h2 {
+        font-size: 1.3rem;
+    }
+
+    .project {
+        padding: 15px;
+    }
+}

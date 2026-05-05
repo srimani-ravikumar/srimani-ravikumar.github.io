@@ -1,6 +1,6 @@
 # 📊 Srimanikandan Ravikumar - Multiple Portfolio Formats
 
-Welcome! This portfolio includes **3 different formats** optimized for different audiences and use cases. Choose the right format for your situation.
+Welcome! This portfolio includes **5 different formats** optimized for different audiences and use cases. Choose the right format for your situation.
 
 ## 🎯 Format Comparison
 
@@ -96,6 +96,30 @@ Welcome! This portfolio includes **3 different formats** optimized for different
 
 ---
 
+### 5. **Minimalist Portfolio** (format4/index.html)
+**Best For:** Traditional industries, content-focused audiences, readability
+- 📖 Clean serif typography for maximum readability
+- 🎯 Content over style - focuses on your achievements
+- 📄 Traditional layout appealing to conservative industries
+- 🖨️ Print-friendly and professional appearance
+- 📝 Text-focused design emphasizing substance
+
+**When to Use:**
+- Traditional corporations and industries
+- When content clarity is paramount
+- Conservative company cultures
+- Print portfolios or formal presentations
+- When you want to emphasize writing quality
+
+**Features:**
+- Serif typography (Georgia/Times)
+- Clean, minimal styling
+- High contrast for readability
+- Content-focused layout
+- Professional, timeless design
+
+---
+
 ## 📂 Directory Structure
 
 ```
@@ -116,6 +140,10 @@ srimani-ravikumar.github.io/
 │   ├── index.html
 │   ├── style.css
 │   └── script.js
+│
+├── format4/               # Minimalist Portfolio
+│   ├── index.html
+│   └── style.css
 │
 ├── FORMATS.html           # Format selector/comparison page
 ├── README.md              # Portfolio overview
@@ -149,11 +177,26 @@ srimani-ravikumar.github.io/
 4. ✅ Hiring manager sees metrics first
 
 ### Scenario 4: Interview Prep
-1. Have all 3 formats ready on your phone
+1. Have all 4 formats ready on your phone
 2. Format 2 for quick email sharing
 3. Format 1 for formal submission
-4. Portfolio for portfolio walkthrough
-5. ✅ Prepared for any ask
+4. Format 3 for portfolio walkthrough
+5. Modern for networking
+6. ✅ Prepared for any ask
+
+### Scenario 5: Tech Company Application
+1. Use **Format 3** (format3/index.html)
+2. Shows modern design skills
+3. Dark theme appeals to tech culture
+4. Interactive elements demonstrate frontend expertise
+5. ✅ Stands out from traditional resumes
+
+### Scenario 6: Traditional Industry Application
+1. Use **Format 4** (format4/index.html)
+2. Clean, readable typography
+3. Content-focused design
+4. Appeals to conservative industries
+5. ✅ Emphasizes substance over style
 
 ---
 
@@ -178,7 +221,7 @@ srimani-ravikumar.github.io/
 
 ## 📊 Content in All Formats
 
-All three formats contain the **same real content**:
+All five formats contain the **same real content**:
 - ✅ 2.8+ years experience
 - ✅ Real job titles & companies
 - ✅ Real metrics & achievements
@@ -197,6 +240,8 @@ Only the **presentation style** differs.
 | Modern Portfolio | Indigo | Pink | Creative, modern |
 | Format 1 (ATS) | Dark Blue | Bright Blue | Professional, corporate |
 | Format 2 (1-Page) | Teal | Green | Modern, clean, metrics-focused |
+| Format 3 (Dark) | Dark Gray | Cyan/Purple | Tech-forward, premium |
+| Format 4 (Minimalist) | Black | Blue | Clean, readable, timeless |
 
 ---
 
