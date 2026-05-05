@@ -308,11 +308,11 @@ a:hover {
     text-align: center;
 }
 
-.stat h5 {
+.stat h3 {
     white-space: normal;
 }
 
-.stat h5 {
+.stat h3 {
     font-size: 2rem;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
