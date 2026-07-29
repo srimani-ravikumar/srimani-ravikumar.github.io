@@ -2,13 +2,9 @@
 
 > Building **reliable systems at scalable** with clean architecture and strong engineering fundamentals.
 
----
-
 ## 🌐 Live Portfolio
 
 🔗 `https://srimani-ravikumar.github.io/`
-
----
 
 ## 📌 About This Project
 
