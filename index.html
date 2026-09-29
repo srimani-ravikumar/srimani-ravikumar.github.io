@@ -10,747 +10,889 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <a href="#home">SR</a>
-            </div>
-            <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Achievements</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#passion">Passion</a></li>
-                <li><a href="#contact" class="cta-button">Let's Talk</a></li>
-            </ul>
-        </div>
-    </nav>
+<body data-mode="gate">
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-
-                <!-- LEFT SIDE -->
-                <div class="hero-left">
-                    <div class="hero-image">
-                        <img src="assets\Srimani_Github_Profile.JPG" alt="Srimani Profile">
-                    </div>
-
-                    <h1 class="hero-title">
-                        Building <span class="gradient-text">reliable systems</span> at scale
-                    </h1>
-                </div>
-
-                <!-- RIGHT SIDE -->
-                <div class="hero-right">
-                    <p class="hero-subtitle">
-                        Software Engineer with <b>3+ years of experience</b> solving real product problems across
-                        postal, logistics, e-commerce, fintech domains through
-                        <b>clean, maintainable architecture</b> and <b>reliable end-to-end systems</b>.
-
-                        I focus on building products that <b>scale</b>, stay <b>easy to evolve</b>, and deliver <b>real
-                            value to users</b>.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">View My Work</a>
-                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-                    </div>
-
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <h3>End-to-End</h3>
-                            <p>System Ownership</p>
-                        </div>
-                        <div class="stat">
-                            <h3>Clean Code</h3>
-                            <p>AI-assisted engineering</p>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-    </section>
-
-    <!-- My Projects -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="projects-grid">
-
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>SmartLogger</h3>
-                        <span class="project-type">Project focused on observability</span>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="[https://github.com/srimani-ravikumar/SmartLogger](https://github.com/srimani-ravikumar/SmartLogger)"
-                            target="_blank" class="project-link">GitHub</a>
-
-                        <a href="[https://www.nuget.org/packages/SmartLogger](https://www.nuget.org/packages/SmartLogger)"
-                            target="_blank" class="project-link">Live
-                            Link</a>
-                    </div>
-
-                    <ul class="project-description">
-                        <li>Engineered a <b>high-throughput non-blocking background processing</b> logging framework.
-                        </li>
-
-                        <li>Supports multiple destinations including <b>Console, FileSystem, Custom Sinks etc..
-                            </b>
-                            with formats including <b>JSON, Plain Text, Custom Formats etc..</etc></b>.</li>
-
-                        <li>Implemented <b>correlation-based request tracing</b> with focus on
-                            <b>thread safety</b>, build tool support, and comprehensive documentation.
-                        </li>
-                    </ul>
-
-                    <div class="project-tech">
-                        <span class="tech-tag">Structured Logging</span>
-                        <span class="tech-tag">Distributed Tracing</span>
-                        <span class="tech-tag">Background Processing</span>
-                        <span class="tech-tag">Observability</span>
-                        <span class="tech-tag">Concurrency</span>
-                        <span class="tech-tag">Thread Safety</span>
-                        <span class="tech-tag">Design Patterns</span>
-                        <span class="tech-tag">SOLID</span>
-                        <span class="tech-tag">Low-Level System Design (LLD)</span>
-                        <span class="tech-tag">C# / .NET</span>
-                    </div>
-                </div>
-
+    <!-- Authenticity Gate: shown first on every full page load -->
+    <div id="authenticity-gate" class="gate" role="dialog" aria-modal="true" aria-labelledby="gate-heading">
+        <div class="gate-inner">
+            <p class="gate-eyebrow">Before you continue</p>
+            <h1 id="gate-heading" tabindex="-1">Before you start judging that this content has been written by
+                AI&hellip;</h1>
+            <p class="gate-body">
+                In a world where AI can generate an impressive portfolio in seconds, there's a reasonable question
+                to ask: how much of what you're about to see actually represents the person behind it?
+            </p>
+            <div class="gate-actions">
+                <button type="button" class="btn btn-secondary" id="gate-static-btn">
+                    No, I believe this content was not written by AI
+                </button>
+                <button type="button" class="btn btn-primary" id="gate-interactive-btn">
+                    Yes, I have doubts. Clarify this.
+                </button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2>Professional Experience</h2>
-            <div class="experience-timeline">
+    <!-- Interactive Journey: guided, progressive-disclosure walkthrough -->
+    <div id="journey" class="journey" aria-live="polite" hidden>
+        <div class="journey-inner">
+            <div class="journey-progress">
+                <span id="journey-progress-label"></span>
+            </div>
 
-                <!-- Experience 1 -->
-                <div class="experience-item">
-                    <div class="experience-date">Apr 2026 - Present</div>
-                    <div class="experience-content">
-                        <h3>Senior Software Engineer</h3>
+            <div class="journey-step" id="journey-step">
+                <p class="journey-eyebrow" id="journey-eyebrow"></p>
+                <h2 id="journey-heading" tabindex="-1"></h2>
+                <p class="journey-context" id="journey-context"></p>
+                <div class="journey-body" id="journey-body"></div>
+            </div>
 
-                        <p class="company">
-                            <a href="[https://www.zucisystems.com/](https://www.zucisystems.com/)" target="_blank">
-                                Zuci Systems
-                            </a>
-                            – Chennai, India
-                        </p>
-
-                        <p>
-                            <b>Client:</b>
-                            <a href="[https://www.eschergroup.com/](https://www.eschergroup.com/)" target="_blank">
-                                Escher Group
-                            </a>
-                            – Boston, US (Contract)
-                        </p>
-
-                        <p><b>Norway Customer</b></p>
-
-                        <ul>
-                            <li>
-                                Designed and implemented
-                                <b>MarketPay Payment App-to-App Integration</b>,
-                                Auth service, and robust error handling
-                            </li>
-                            <li>
-                                Engineered
-                                <b>Norway Track & Trace System Integration</b>
-                                via Delivery Export Agent
-                            </li>
-                            <li>
-                                Engineered
-                                <b>Android (IPC) AppSwitch integration</b>
-                                between Norway's ShopApp and Escher's SalesApp
-                            </li>
-                            <li>
-                                Integrated
-                                <b>BPD Pricing Engine</b>
-                                into POS shipping workflows
-                            </li>
-                            <li>
-                                <b>Impact:</b>
-                                Improved operational efficiency for
-                                <b>500+ daily transactions per branch</b>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience 2 -->
-                <div class="experience-item">
-                    <div class="experience-date">Oct 2022 - Mar 2026</div>
-                    <div class="experience-content">
-                        <h3>Software Engineer</h3>
-
-                        <p class="company">
-                            <a href="[https://www.zucisystems.com/](https://www.zucisystems.com/)" target="_blank">
-                                Zuci Systems
-                            </a>
-                            – Chennai, India
-                        </p>
-
-                        <p>
-                            <b>Client:</b>
-                            <a href="[https://www.eschergroup.com/](https://www.eschergroup.com/)" target="_blank">
-                                Escher Group
-                            </a>
-                            – Boston, US (Contract)
-                        </p>
-
-                        <p>
-                            <b>
-                                <a href="[https://www.eschergroup.com/blog/thailand-post-transforms-delivery-network-with-escher/](https://www.eschergroup.com/blog/thailand-post-transforms-delivery-network-with-escher/)"
-                                    target="_blank">
-                                    Thailand Customer
-                                </a>
-                            </b>
-                        </p>
-
-                        <ul>
-                            <li>
-                                As the <b>primary engineer</b>, developed the
-                                mission-critical
-                                <b>Shipping & Delivery Management module</b>
-                            </li>
-                            <li>
-                                Built support for
-                                <b>100+ shipping services</b>
-                                across complex postal and logistics workflows
-                            </li>
-                            <li>
-                                Engineered integrations with Thailand's
-                                <b>National ID systems</b>
-                                via interop CoreAPI service
-                            </li>
-                            <li>
-                                Integrated Thailand's
-                                <b>Track & Trace System</b>
-                                via Delivery Export Agent
-                            </li>
-                            <li>
-                                Engineered
-                                <b>CNI agent (Custom ETL framework)</b>
-                                pipelines processing
-                                <b>100+ inbound files daily</b>
-                                and designed EOD
-                                <b>batch workflows</b> for
-                                <b>high-volume transaction processing</b>
-                            </li>
-                            <li>
-                                <b>Impact:</b>
-                                Improved operational efficiency for
-                                <b>1000+ daily transactions per branch</b>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience 3 -->
-                <div class="experience-item">
-                    <div class="experience-date">Jun 2023 - Oct 2023</div>
-                    <div class="experience-content">
-                        <h3>Software Engineer</h3>
-
-                        <p class="company">
-                            <a href="[https://www.zucisystems.com/](https://www.zucisystems.com/)" target="_blank">
-                                Zuci Systems
-                            </a>
-                        </p>
-
-                        <ul>
-                            <li>
-                                Developed
-                                <b>full-stack e-commerce application</b>
-                                using ASP.NET Core, React.js, and SQL Server
-                            </li>
-                            <li>
-                                Built
-                                <b>REST APIs using clean architecture</b>
-                                for scalable and modular design
-                            </li>
-                            <li>
-                                Optimized SQL queries and schema, reducing latency by
-                                <b>22%</b> and improving throughput
-                            </li>
-                            <li>
-                                Implemented <b>core features</b> such as
-                                catalog, cart, and authentication
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience 4 -->
-                <div class="experience-item">
-                    <div class="experience-date">Oct 2022 - Jun 2023</div>
-                    <div class="experience-content">
-                        <h3>Software Engineer Intern</h3>
-
-                        <p class="company">
-                            <a href="[https://www.zucisystems.com/](https://www.zucisystems.com/)" target="_blank">
-                                Zuci Systems
-                            </a>
-                        </p>
-
-                        <ul>
-                            <li>
-                                Developed
-                                <b>Twitter-clone application</b>
-                                using ASP.NET MVC and JavaScript
-                            </li>
-                            <li>
-                                Applied
-                                <b>SOLID principles and design patterns</b>
-                                for scalable architecture
-                            </li>
-                            <li>
-                                Completed
-                                <b>Business English training (British Council)</b>
-                                to improve collaboration
-                            </li>
-                            <li>
-                                Built foundation in
-                                <b>full-stack development and clean code practices</b>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
+            <div class="journey-actions">
+                <button type="button" class="btn btn-primary" id="journey-continue-btn">Continue →</button>
+                <button type="button" class="btn btn-secondary" id="journey-revalidate-btn" hidden>No, I want to
+                    revalidate again</button>
+                <button type="button" class="link-button" id="journey-back-btn" hidden>
+                    One sec, let me go back now ← </button>
+                <button type="button" class="link-button" id="journey-skip-btn">Prefer to skip ahead? View full
+                    portfolio</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-
-                <div class="skill-category">
-                    <h4>Core Skills</h4>
-                    <div class="skill-tags">
-                        <span>Problem Solving</span>
-                        <span>Data Structures & Algorithms (DSA)</span>
-                        <span>System Design (HLD & LLD)</span>
-                        <span>Design Patterns (GoF)</span>
-                        <span>Design Principles (SOLID)</span>
-                        <span>Concurrency</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Languages</h4>
-                    <div class="skill-tags">
-                        <span>C#</span>
-                        <span>JavaScript</span>
-                        <span>Python</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Backend & Architecture</h4>
-                    <div class="skill-tags">
-                        <span>ASP.NET Core Web API</span>
-                        <span>.NET</span>
-                        <span>REST APIs</span>
-                        <span>GraphQL</span>
-                        <span>Webhooks</span>
-                        <span>Microservices</span>
-                        <span>Event-Driven Systems</span>
-                        <span>Distributed Systems</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Messaging & Caching</h4>
-                    <div class="skill-tags">
-                        <span>Kafka</span>
-                        <span>Redis</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Databases</h4>
-                    <div class="skill-tags">
-                        <span>SQL Server</span>
-                        <span>MongoDB</span>
-                        <span>Query Optimization</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Cloud</h4>
-                    <div class="skill-tags">
-                        <span>Azure App Service</span>
-                        <span>Azure Functions</span>
-                        <span>Azure Key Vault</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Deployment</h4>
-                    <div class="skill-tags">
-                        <span>Docker</span>
-                        <span>CI/CD</span>
-                        <span>Azure DevOps</span>
-                        <span>GitHub Actions</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Observability</h4>
-                    <div class="skill-tags">
-                        <span>OpenTelemetry (OTel)</span>
-                        <span>Prometheus</span>
-                        <span>Grafana Tempo</span>
-                        <span>Grafana Loki</span>
-                        <span>Grafana Dashboards</span>
-                        <span>Metrics</span>
-                        <span>Distributed Tracing</span>
-                        <span>Structured Logging</span>
-                        <span>Health Checks</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Testing tools & Quality</h4>
-                    <div class="skill-tags">
-                        <span>Postman</span>
-                        <span>Pact</span>
-                        <span>k6</span>
-                        <span>Unit Testing</span>
-                        <span>Integration Testing</span>
-                        <span>Contract Testing</span>
-                        <span>Load Testing</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Frontend</h4>
-                    <div class="skill-tags">
-                        <span>React.js</span>
-                        <span>ASP.NET MVC</span>
-                        <span>Bootstrap</span>
-                        <span>Tailwind CSS</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Tools & Platforms</h4>
-                    <div class="skill-tags">
-                        <span>AI (GitHub Copilot)</span>
-                        <span>Git</span>
-                        <span>GitHub</span>
-                        <span>Bitbucket</span>
-                        <span>JIRA</span>
-                        <span>Visual Studio</span>
-                        <span>VS Code</span>
-                        <span>Notion</span>
-                    </div>
-                </div>
-
-            </div>
+    <!-- Reusable "How I Think" content, only used inside the interactive journey -->
+    <template id="thinking-template">
+        <div class="thinking-flow">
+            <span>Understanding requirements</span>
+            <span>Clarifying constraints</span>
+            <span>Breaking down the problem</span>
+            <span>Identifying trade-offs</span>
+            <span>Designing</span>
+            <span>Implementing</span>
+            <span>Observing</span>
+            <span>Improving</span>
         </div>
-    </section>
+        <div class="thinking-topics">
+            <details>
+                <summary>System Design</summary>
+                <p>I start from <b>requirements</b> → <b>constraints</b> → <b>traffic shape</b> → <b>consistency
+                        needs</b> → <b>failure modes</b> before choosing a
+                    pattern. Most of the systems I've built favour clear service boundaries and explicit contracts
+                    over premature abstraction..</p>
+            </details>
+            <details>
+                <summary>Concurrency</summary>
+                <p>For me.. <b>Thread safety and non-blocking processing</b> matter most when a system is under load..
+                </p>
+            </details>
+            <details>
+                <summary>API Design</summary>
+                <p>I choose between <b>REST, gRPC, GraphQL</b> and others based on the use case, along with the right
+                    protocols
+                    and data format, such as JSON, protobuf, etc. I favour predictable contracts, explicit error
+                    handling and versioning decisions made early
+                    rather than patched in later..</p>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'll keep it simple about myself as bringing <b>"Clarity & resilience"</b> to every step that I
-                        take in this rapidly evolving tech landscape is <b>my topmost priority.</b>
-                    </p>
-
-                    <p>
-                        I have proven this by shipping <b>mission-critical functionality</b> across e-commerce,
-                        logistics, and POS systems, supporting <b>1000+ daily transactions</b> and <b>multiple business
-                            partners</b>.
-                    </p>
-
-                    <p>
-                        You can visit <a
-                            href="[https://www.eschergroup.com/blog/thailand-post-transforms-delivery-network-with-escher/](https://www.eschergroup.com/blog/thailand-post-transforms-delivery-network-with-escher/)"
-                            target="_blank">here</a> to learn more about the transformation program I have contributed
-                        to for Thailand Post.
-                    </p>
-
-                    <p>
-                        We now live in an AI era where people are not able to trust information blindly, so I'm giving
-                        few rigid values that I follow in my professional journey: <b>clarity, resilience, and long-term
-                            maintainability</b>.
-                    </p>
-
-                    <p>
-                        My mental model for solving problems, including <b>First Principles Thinking, Second-Order
-                            Thinking, and Inversion etc..</b>, helps me make better decisions and build robust systems.
-                    </p>
-
-                </div>
-                <div class="about-highlights">
-                    <div class="highlight-card">
-                        <h4>🧩 Clean Code & Architecture</h4>
-                        <p>SOLID principles, design patterns, and maintainable systems</p>
-                    </div>
-                    <div class="highlight-card">
-                        <h4>⚙️ Systems Thinker</h4>
-                        <p>Design scalable APIs, optimize databases, and handle complex workflows</p>
-                    </div>
-                    <div class="highlight-card">
-                        <h4>📈 Results Oriented</h4>
-                        <p>Shipping production code that reduces costs and improves efficiency</p>
-                    </div>
-                </div>
-            </div>
+            </details>
+            <details>
+                <summary>Observability</summary>
+                <p>I'm a strong believer that if a <b>system can't tell you what it's doing, you can't operate it
+                        confidently.</b>
+                    Structured logging,
+                    tracing and metrics are part of the design, not an afterthought.</p>
+            </details>
+            <details>
+                <summary>Testing</summary>
+                <p>In short, <b>Quality over quantity</b>. I prioritize coverage around business-critical paths and
+                    integration boundaries over chasing a coverage percentage.</p>
+            </details>
+            <details>
+                <summary>Distributed Systems</summary>
+                <p>Rooted within the realities of distributed systems, <b>Partial failure is the default, not the
+                        exception.</b> I design for retries, idempotency and graceful
+                    degradation rather than assuming every call succeeds.</p>
+            </details>
         </div>
-    </section>
+    </template>
 
-    <!-- Certifications & Awards Section -->
-    <section id="certifications" class="certifications">
-        <div class="container">
-            <h2>Certifications & Achievements</h2>
-            <div class="certifications-grid">
+    <!-- LeetCode checkpoint content, only used inside the interactive journey -->
+    <template id="leetcode-template">
+        <a class="btn btn-primary" href="https://leetcode.com/u/srimani-ravikumar" target="_blank"
+            rel="noopener noreferrer">Explore My LeetCode →</a>
+    </template>
 
-                <div class="cert-card">
-                    <h4>🏆 Hackfest 2024 Winner</h4>
-                    <p class="cert-title">Zync AI - Configuration Drift Solution</p>
-                    <p>Junior member in engineering an AI-driven DevOps solution preventing cloud misconfigurations
-                        (responsible for ~80%
-                        of critical failures). Delivered automated documentation, compliance monitoring, and incident
-                        workflows.</p>
-                    <p class="cert-impact"><strong>Impact:</strong> Reduces downtime costs by avg. $5,600/minute</p>
+    <!-- Final journey screen -->
+    <template id="final-template">
+        <p>You've now seen:</p>
+        <ul class="final-checklist">
+            <li>The person</li>
+            <li>The projects</li>
+            <li>The engineering thinking</li>
+            <li>The professional experience</li>
+            <li>The technical depth</li>
+            <li>The interests behind the work</li>
+        </ul>
+        <p>Side note: I’ve put close to 10 hrs of effort into <b>reverse engineering from the end user experience to the
+            technology</b>, hopefully you had a smooth experience navigating and getting to know me effectively.</p>
+
+        <p><b><i>You can make your own judgment now... 😊</i></b></p>
+    </template>
+
+    <div id="site-content">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <a href="#home">SR</a>
                 </div>
-
-                <div class="cert-card">
-                    <h4>🥇 Hackfest 2023 Participant</h4>
-                    <p class="cert-title">Pro-XY - Data Monitoring Dashboard</p>
-                    <p>Junior member in designing no-code dashboard enabling non-technical stakeholders to track KPIs in
-                        real-time. Built
-                        with React, Tailwind CSS, Recharts with RBAC-based access control.</p>
-                    <p class="cert-impact"><strong>Impact:</strong> Enables faster data-driven decisions</p>
-                </div>
-
-                <div class="cert-card">
-                    <h4>🤖 GitHub Copilot Certification</h4>
-                    <p class="cert-title">GH-300: GitHub Copilot</p>
-                    <p>Certified in effectively using GitHub Copilot to accelerate development workflows, improve code
-                        quality, and enhance developer productivity through AI-assisted coding.</p>
-                    <p class="cert-impact"><strong>Focus:</strong> AI-assisted development, code generation,
-                        productivity optimization</p>
-                </div>
-
-                <div class="cert-card">
-                    <h4>☁️ Microsoft Azure Certifications</h4>
-                    <p class="cert-title">AZ-204 & AZ-900</p>
-                    <p>Microsoft Azure Associate Developer (AZ-204) and Microsoft Azure Fundamentals (AZ-900).
-                        Demonstrates expertise in cloud development on Azure platform.</p>
-                </div>
-
-                <div class="cert-card">
-                    <h4>💡 HackerRank Badges</h4>
-                    <p class="cert-title">Problem Solving & C# (Basic)</p>
-                    <p>Verified problem-solving and C# programming skills through HackerRank certifications. Foundation
-                        for competitive programming and algorithm mastery.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2>Education & Learning</h2>
-            <div class="education-timeline">
-
-                <div class="edu-item">
-                    <div class="edu-year">Sep 2025 - Present</div>
-                    <div class="edu-content">
-                        <h3>
-                            <a href="[https://takeuforward.org/profile/Srimani](https://takeuforward.org/profile/Srimani)"
-                                target="_blank">
-                                takeUforward
-                            </a>
-                            &
-                            <a href="[https://algomaster.io/](https://algomaster.io/)" target="_blank">
-                                algomaster.io
-                            </a>
-                        </h3>
-                        <p>
-                            Unlearn. Relearn. Strengthening core engineering thinking for end-to-end product
-                            development.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="edu-item">
-                    <div class="edu-year">Aug 2023 - Sep 2025</div>
-                    <div class="edu-content">
-                        <h3>M.Sc. Information Technology</h3>
-                        <p class="edu-school">
-                            Bharathidasan University (Distance Education)
-                        </p>
-                    </div>
-                </div>
-
-                <div class="edu-item">
-                    <div class="edu-year">Aug 2020 - Apr 2023</div>
-                    <div class="edu-content">
-                        <h3>B.Sc. Computer Science</h3>
-                        <p class="edu-school">
-                            St. Joseph's College
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Passion Section -->
-    <section id="passion" class="passion">
-        <div class="container">
-            <h2>Passion (Professional Cricketer & Sports)</h2>
-
-            <div class="passion-content">
-                <ul>
-                    <li>
-                        Delivered a match-winning spell of
-                        <b>10 overs, 33 runs, 5 wickets, and 1 maiden</b>,
-                        earning recognition in
-                        <a href="[https://drive.google.com/file/d/101oUkZqNhxEeS5o_vQul06qmg1-vuZzh/view?usp=drive_link](https://drive.google.com/file/d/101oUkZqNhxEeS5o_vQul06qmg1-vuZzh/view?usp=drive_link)"
-                            target="_blank">
-                            <b>The Hindu</b>
-                        </a>
-                        and
-                        <a href="[https://drive.google.com/file/d/1HUEmSdT-Xl6o5_mC-Tp4VbYbiFlBpvV2/view?usp=drive_link](https://drive.google.com/file/d/1HUEmSdT-Xl6o5_mC-Tp4VbYbiFlBpvV2/view?usp=drive_link)"
-                            target="_blank">
-                            <b>Dinamalar</b>
-                        </a>
-                        newspaper of Tamil Nadu, India.
-                    </li>
-
-                    <li>
-                        The same habits that keep me competitive in
-                        <b>cricket "structured practice, analysing weaknesses,
-                            consistent effort, and performing under pressure"</b>
-                        are the principles I carry into my engineering work every day.
-                    </li>
-
-                    <li>
-                        A complete gallery of newspaper features, match photos,
-                        and performance highlights is available through the
-                        <a href="[https://drive.google.com/drive/folders/161STAV79DMVYqgQB2pIHMrHA-4GH17bz?usp=drive_link](https://drive.google.com/drive/folders/161STAV79DMVYqgQB2pIHMrHA-4GH17bz?usp=drive_link)"
-                            target="_blank">
-                            <b><u>Gallery Link</u></b>
-                        </a>.
-                    </li>
+                <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Achievements</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#passion">Passion</a></li>
+                    <li><a href="#contact" class="cta-button">Let's Talk</a></li>
                 </ul>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Let's Build Together</h2>
-            <p class="contact-subtitle">
-                Open to relocation/remote opportunities. Passionate about building reliable systems and shipping code
-                that matters.
-                <b>Let's talk about how I can add value to your team.</b>
-            </p>
-            <div class="contact-methods">
-                <a href="mailto:srimani.ravikumar@gmail.com" class="contact-link">
-                    <span class="icon">✉️</span>
-                    <div>
-                        <h4>Email</h4>
-                        <p>srimani.ravikumar@gmail.com</p>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+
+                    <!-- LEFT SIDE -->
+                    <div class="hero-left">
+                        <div class="hero-image">
+                            <img src="assets\Srimani_Github_Profile.JPG" alt="Srimani Profile">
+                        </div>
+
+                        <h1 class="hero-title">
+                            Building <span class="gradient-text">reliable systems</span> at scale
+                        </h1>
                     </div>
-                </a>
-                <a href="[https://drive.google.com/file/d/1Zsqb9wWrgk8wKYv53gkVWLEvAdOdfN-4/view?usp=sharing](https://drive.google.com/file/d/1Zsqb9wWrgk8wKYv53gkVWLEvAdOdfN-4/view?usp=sharing)"
-                    target="_blank" class="contact-link">
-                    <span class="icon">📄</span>
-                    <div>
-                        <h4>Resume</h4>
-                        <p>Click here to view my resume...</p>
+
+                    <!-- RIGHT SIDE -->
+                    <div class="hero-right">
+                        <p class="hero-subtitle">
+                            Software Engineer with <b>3+ years of experience</b> solving real product problems
+                            across
+                            postal, logistics, e-commerce, fintech domains through
+                            <b>clean, maintainable architecture</b> and <b>reliable end-to-end systems</b>.
+
+                            I focus on building products that <b>scale</b>, stay <b>easy to evolve</b>, and deliver
+                            <b>real
+                                value to users</b>.
+                        </p>
+
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn btn-primary">View My Work</a>
+                            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                        </div>
+
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <h3>End-to-End</h3>
+                                <p>System Ownership</p>
+                            </div>
+                            <div class="stat">
+                                <h3>Clean Code</h3>
+                                <p>AI-assisted engineering</p>
+                            </div>
+
+                        </div>
+
                     </div>
-                </a>
-                <a href="[https://linkedin.com/in/srimani-ravikumar](https://linkedin.com/in/srimani-ravikumar)"
-                    target="_blank" class="contact-link">
-                    <span class="icon">💼</span>
-                    <div>
-                        <h4>LinkedIn</h4>
-                        <p>linkedin.com/in/srimani-ravikumar</p>
+                </div>
+        </section>
+
+        <!-- My Projects -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>SmartLogger</h3>
+                            <span class="project-type">Project focused on observability</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/srimani-ravikumar/SmartLogger" target="_blank"
+                                rel="noopener noreferrer" class="project-link">GitHub</a>
+
+                            <a href="https://www.nuget.org/packages/SmartLogger" target="_blank"
+                                rel="noopener noreferrer" class="project-link">Live
+                                Link</a>
+                        </div>
+
+                        <ul class="project-description">
+                            <li>Engineered a <b>high-throughput non-blocking background processing</b> logging
+                                framework.
+                            </li>
+
+                            <li>Supports multiple destinations including <b>Console, FileSystem, Custom Sinks etc..
+                                </b>
+                                with formats including <b>JSON, Plain Text, Custom Formats etc..</etc></b>.</li>
+
+                            <li>Implemented <b>correlation-based request tracing</b> with focus on
+                                <b>thread safety</b>, build tool support, and comprehensive documentation.
+                            </li>
+                        </ul>
+
+                        <div class="project-tech">
+                            <span class="tech-tag">Structured Logging</span>
+                            <span class="tech-tag">Distributed Tracing</span>
+                            <span class="tech-tag">Background Processing</span>
+                            <span class="tech-tag">Observability</span>
+                            <span class="tech-tag">Concurrency</span>
+                            <span class="tech-tag">Thread Safety</span>
+                            <span class="tech-tag">Design Patterns</span>
+                            <span class="tech-tag">SOLID</span>
+                            <span class="tech-tag">Low-Level System Design (LLD)</span>
+                            <span class="tech-tag">C# / .NET</span>
+                        </div>
                     </div>
-                </a>
-                <a href="[https://github.com/srimani-ravikumar](https://github.com/srimani-ravikumar)" target="_blank"
-                    class="contact-link">
-                    <span class="icon">💻</span>
-                    <div>
-                        <h4>GitHub</h4>
-                        <p>github.com/srimani-ravikumar</p>
-                    </div>
-                </a>
-                <a href="[https://takeuforward.org/profile/Srimani](https://takeuforward.org/profile/Srimani)"
-                    target="_blank" class="contact-link">
-                    <span class="icon">📚</span>
-                    <div>
-                        <h4>TakeUForward</h4>
-                        <p>takeuforward.org/profile/Srimani</p>
-                    </div>
-                </a>
-                <a href="[https://leetcode.com/u/srimani-ravikumar](https://leetcode.com/u/srimani-ravikumar)"
-                    target="_blank" class="contact-link">
-                    <span class="icon">🧩</span>
-                    <div>
-                        <h4>LeetCode</h4>
-                        <p>leetcode.com/srimani-ravikumar</p>
-                    </div>
-                </a>
-                <a href="[https://medium.com/@srimani.ravikumar](https://medium.com/@srimani.ravikumar)" target="_blank"
-                    class="contact-link">
-                    <span class="icon">📝</span>
-                    <div>
-                        <h4>Medium Articles</h4>
-                        <p>medium.com/@srimani.ravikumar</p>
-                    </div>
-                </a>
-                <a href="[https://substack.com/@srimaniravikumar](https://substack.com/@srimaniravikumar)"
-                    target="_blank" class="contact-link">
-                    <span class="icon">📨</span>
-                    <div>
-                        <h4>Substack Newsletter</h4>
-                        <p>substack.com/@srimaniravikumar</p>
-                    </div>
-                </a>
+
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Srimani. All rights reserved. Chennai, India</p>
-        </div>
-    </footer>
+        <!-- Experience Section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <h2>Professional Experience</h2>
+                <div class="experience-timeline">
+
+                    <!-- Experience 1 -->
+                    <div class="experience-item">
+                        <div class="experience-date">Apr 2026 - Present</div>
+                        <div class="experience-content">
+                            <h3>Senior Software Engineer</h3>
+
+                            <p class="company">
+                                <a href="https://www.zucisystems.com/" target="_blank" rel="noopener noreferrer">
+                                    Zuci Systems
+                                </a>
+                                – Chennai, India
+                            </p>
+
+                            <p>
+                                <b>Client:</b>
+                                <a href="https://www.eschergroup.com/" target="_blank" rel="noopener noreferrer">
+                                    Escher Group
+                                </a>
+                                – Boston, US (Contract)
+                            </p>
+
+                            <p><b>Norway Customer</b></p>
+
+                            <ul>
+                                <li>
+                                    Designed and implemented
+                                    <b>MarketPay Payment App-to-App Integration</b>,
+                                    Auth service, and robust error handling
+                                </li>
+                                <li>
+                                    Engineered
+                                    <b>Norway Track & Trace System Integration</b>
+                                    via Delivery Export Agent
+                                </li>
+                                <li>
+                                    Engineered
+                                    <b>Android (IPC) AppSwitch integration</b>
+                                    between Norway's ShopApp and Escher's SalesApp
+                                </li>
+                                <li>
+                                    Integrated
+                                    <b>BPD Pricing Engine</b>
+                                    into POS shipping workflows
+                                </li>
+                                <li>
+                                    <b>Impact:</b>
+                                    Improved operational efficiency for
+                                    <b>500+ daily transactions per branch</b>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="experience-item">
+                        <div class="experience-date">Oct 2022 - Mar 2026</div>
+                        <div class="experience-content">
+                            <h3>Software Engineer</h3>
+
+                            <p class="company">
+                                <a href="https://www.zucisystems.com/" target="_blank" rel="noopener noreferrer">
+                                    Zuci Systems
+                                </a>
+                                – Chennai, India
+                            </p>
+
+                            <p>
+                                <b>Client:</b>
+                                <a href="https://www.eschergroup.com/" target="_blank" rel="noopener noreferrer">
+                                    Escher Group
+                                </a>
+                                – Boston, US (Contract)
+                            </p>
+
+                            <p>
+                                <b>
+                                    <a href="https://www.eschergroup.com/blog/thailand-post-transforms-delivery-network-with-escher/"
+                                        target="_blank" rel="noopener noreferrer">
+                                        Thailand Customer
+                                    </a>
+                                </b>
+                            </p>
+
+                            <ul>
+                                <li>
+                                    As the <b>primary engineer</b>, developed the
+                                    mission-critical
+                                    <b>Shipping & Delivery Management module</b>
+                                </li>
+                                <li>
+                                    Built support for
+                                    <b>100+ shipping services</b>
+                                    across complex postal and logistics workflows
+                                </li>
+                                <li>
+                                    Engineered integrations with Thailand's
+                                    <b>National ID systems</b>
+                                    via interop CoreAPI service
+                                </li>
+                                <li>
+                                    Integrated Thailand's
+                                    <b>Track & Trace System</b>
+                                    via Delivery Export Agent
+                                </li>
+                                <li>
+                                    Engineered
+                                    <b>CNI agent (Custom ETL framework)</b>
+                                    pipelines processing
+                                    <b>100+ inbound files daily</b>
+                                    and designed EOD
+                                    <b>batch workflows</b> for
+                                    <b>high-volume transaction processing</b>
+                                </li>
+                                <li>
+                                    <b>Impact:</b>
+                                    Improved operational efficiency for
+                                    <b>1000+ daily transactions per branch</b>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience 3 -->
+                    <div class="experience-item">
+                        <div class="experience-date">Jun 2023 - Oct 2023</div>
+                        <div class="experience-content">
+                            <h3>Software Engineer</h3>
+
+                            <p class="company">
+                                <a href="https://www.zucisystems.com/" target="_blank" rel="noopener noreferrer">
+                                    Zuci Systems
+                                </a>
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Developed
+                                    <b>full-stack e-commerce application</b>
+                                    using ASP.NET Core, React.js, and SQL Server
+                                </li>
+                                <li>
+                                    Built
+                                    <b>REST APIs using clean architecture</b>
+                                    for scalable and modular design
+                                </li>
+                                <li>
+                                    Optimized SQL queries and schema, reducing latency by
+                                    <b>22%</b> and improving throughput
+                                </li>
+                                <li>
+                                    Implemented <b>core features</b> such as
+                                    catalog, cart, and authentication
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience 4 -->
+                    <div class="experience-item">
+                        <div class="experience-date">Oct 2022 - Jun 2023</div>
+                        <div class="experience-content">
+                            <h3>Software Engineer Intern</h3>
+
+                            <p class="company">
+                                <a href="https://www.zucisystems.com/" target="_blank" rel="noopener noreferrer">
+                                    Zuci Systems
+                                </a>
+                            </p>
+
+                            <ul>
+                                <li>
+                                    Developed
+                                    <b>Twitter-clone application</b>
+                                    using ASP.NET MVC and JavaScript
+                                </li>
+                                <li>
+                                    Applied
+                                    <b>SOLID principles and design patterns</b>
+                                    for scalable architecture
+                                </li>
+                                <li>
+                                    Completed
+                                    <b>Business English training (British Council)</b>
+                                    to improve collaboration
+                                </li>
+                                <li>
+                                    Built foundation in
+                                    <b>full-stack development and clean code practices</b>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+
+                    <div class="skill-category">
+                        <h4>Core Skills</h4>
+                        <div class="skill-tags">
+                            <span>Problem Solving</span>
+                            <span>Data Structures & Algorithms (DSA)</span>
+                            <span>System Design (HLD & LLD)</span>
+                            <span>Design Patterns (GoF)</span>
+                            <span>Design Principles (SOLID)</span>
+                            <span>Concurrency</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <div class="skill-tags">
+                            <span>C#</span>
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Backend & Architecture</h4>
+                        <div class="skill-tags">
+                            <span>ASP.NET Core Web API</span>
+                            <span>.NET</span>
+                            <span>REST APIs</span>
+                            <span>GraphQL</span>
+                            <span>Webhooks</span>
+                            <span>Microservices</span>
+                            <span>Event-Driven Systems</span>
+                            <span>Distributed Systems</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Messaging & Caching</h4>
+                        <div class="skill-tags">
+                            <span>Kafka</span>
+                            <span>Redis</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Databases</h4>
+                        <div class="skill-tags">
+                            <span>SQL Server</span>
+                            <span>MongoDB</span>
+                            <span>Query Optimization</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Cloud</h4>
+                        <div class="skill-tags">
+                            <span>Azure App Service</span>
+                            <span>Azure Functions</span>
+                            <span>Azure Key Vault</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Deployment</h4>
+                        <div class="skill-tags">
+                            <span>Docker</span>
+                            <span>CI/CD</span>
+                            <span>Azure DevOps</span>
+                            <span>GitHub Actions</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Observability</h4>
+                        <div class="skill-tags">
+                            <span>OpenTelemetry (OTel)</span>
+                            <span>Prometheus</span>
+                            <span>Grafana Tempo</span>
+                            <span>Grafana Loki</span>
+                            <span>Grafana Dashboards</span>
+                            <span>Metrics</span>
+                            <span>Distributed Tracing</span>
+                            <span>Structured Logging</span>
+                            <span>Health Checks</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Testing tools & Quality</h4>
+                        <div class="skill-tags">
+                            <span>Postman</span>
+                            <span>Pact</span>
+                            <span>k6</span>
+                            <span>Unit Testing</span>
+                            <span>Integration Testing</span>
+                            <span>Contract Testing</span>
+                            <span>Load Testing</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Frontend</h4>
+                        <div class="skill-tags">
+                            <span>React.js</span>
+                            <span>ASP.NET MVC</span>
+                            <span>Bootstrap</span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Tools & Platforms</h4>
+                        <div class="skill-tags">
+                            <span>AI (GitHub Copilot)</span>
+                            <span>Git</span>
+                            <span>GitHub</span>
+                            <span>Bitbucket</span>
+                            <span>JIRA</span>
+                            <span>Visual Studio</span>
+                            <span>VS Code</span>
+                            <span>Notion</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            I'll keep it simple about myself as bringing <b>"Clarity & resilience"</b> to every step
+                            that I
+                            take in this rapidly evolving tech landscape is <b>my topmost priority.</b>
+                        </p>
+
+                        <p>
+                            I have proven this by shipping <b>mission-critical functionality</b> across e-commerce,
+                            logistics, and POS systems, supporting <b>1000+ daily transactions</b> and <b>multiple
+                                business
+                                partners</b>.
+                        </p>
+
+                        <p>
+                            You can visit <a
+                                href="https://www.eschergroup.com/blog/thailand-post-transforms-delivery-network-with-escher/"
+                                target="_blank" rel="noopener noreferrer">here</a> to learn more about the
+                            transformation program I have contributed
+                            to for Thailand Post.
+                        </p>
+
+                        <p>
+                            Here are the rigid values that I follow in my professional journey: <b>clarity, resilience,
+                                and long-term maintainability</b>.
+                        </p>
+
+                        <p>
+                            My mental model for solving problems, including <b>First Principles Thinking,
+                                Second-Order
+                                Thinking, and Inversion etc..</b>, helps me make better decisions and build robust
+                            systems.
+                        </p>
+
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <h4>🧩 Clean Code & Architecture</h4>
+                            <p>SOLID principles, design patterns, and maintainable systems</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h4>⚙️ Systems Thinker</h4>
+                            <p>Design scalable APIs, optimize databases, and handle complex workflows</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h4>📈 Results Oriented</h4>
+                            <p>Shipping production code that reduces costs and improves efficiency</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Awards Section -->
+        <section id="certifications" class="certifications">
+            <div class="container">
+                <h2>Certifications & Achievements</h2>
+                <div class="certifications-grid">
+
+                    <div class="cert-card">
+                        <h4>🏆 Hackfest 2024 Winner</h4>
+                        <p class="cert-title">Zync AI - Configuration Drift Solution</p>
+                        <p>Junior member in engineering an AI-driven DevOps solution preventing cloud
+                            misconfigurations
+                            (responsible for ~80%
+                            of critical failures). Delivered automated documentation, compliance monitoring, and
+                            incident
+                            workflows.</p>
+                        <p class="cert-impact"><strong>Impact:</strong> Reduces downtime costs by avg. $5,600/minute
+                        </p>
+                    </div>
+
+                    <div class="cert-card">
+                        <h4>🥇 Hackfest 2023 Participant</h4>
+                        <p class="cert-title">Pro-XY - Data Monitoring Dashboard</p>
+                        <p>Junior member in designing no-code dashboard enabling non-technical stakeholders to track
+                            KPIs in
+                            real-time. Built
+                            with React, Tailwind CSS, Recharts with RBAC-based access control.</p>
+                        <p class="cert-impact"><strong>Impact:</strong> Enables faster data-driven decisions</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <h4>🤖 GitHub Copilot Certification</h4>
+                        <p class="cert-title">GH-300: GitHub Copilot</p>
+                        <p>Certified in effectively using GitHub Copilot to accelerate development workflows,
+                            improve code
+                            quality, and enhance developer productivity through AI-assisted coding.</p>
+                        <p class="cert-impact"><strong>Focus:</strong> AI-assisted development, code generation,
+                            productivity optimization</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <h4>☁️ Microsoft Azure Certifications</h4>
+                        <p class="cert-title">AZ-204 & AZ-900</p>
+                        <p>Microsoft Azure Associate Developer (AZ-204) and Microsoft Azure Fundamentals (AZ-900).
+                            Demonstrates expertise in cloud development on Azure platform.</p>
+                    </div>
+
+                    <div class="cert-card">
+                        <h4>💡 HackerRank Badges</h4>
+                        <p class="cert-title">Problem Solving & C# (Basic)</p>
+                        <p>Verified problem-solving and C# programming skills through HackerRank certifications.
+                            Foundation
+                            for competitive programming and algorithm mastery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education">
+            <div class="container">
+                <h2>Education & Learning</h2>
+                <div class="education-timeline">
+
+                    <div class="edu-item">
+                        <div class="edu-year">Sep 2025 - Present</div>
+                        <div class="edu-content">
+                            <h3>
+                                <a href="https://takeuforward.org/profile/Srimani" target="_blank"
+                                    rel="noopener noreferrer">
+                                    takeUforward
+                                </a>
+                                &
+                                <a href="https://algomaster.io/" target="_blank" rel="noopener noreferrer">
+                                    algomaster.io
+                                </a>
+                            </h3>
+                            <p>
+                                Unlearn. Relearn. Strengthening core engineering thinking for end-to-end product
+                                development.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-year">Aug 2023 - Sep 2025</div>
+                        <div class="edu-content">
+                            <h3>M.Sc. Information Technology</h3>
+                            <p class="edu-school">
+                                Bharathidasan University (Distance Education)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-year">Aug 2020 - Apr 2023</div>
+                        <div class="edu-content">
+                            <h3>B.Sc. Computer Science</h3>
+                            <p class="edu-school">
+                                St. Joseph's College
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Passion Section -->
+        <section id="passion" class="passion">
+            <div class="container">
+                <h2>Passion (Professional Cricketer & Sports)</h2>
+
+                <div class="passion-content">
+                    <ul>
+                        <li>
+                            Delivered a match-winning spell of
+                            <b>10 overs, 33 runs, 5 wickets, and 1 maiden</b>,
+                            earning recognition in
+                            <a href="https://drive.google.com/file/d/101oUkZqNhxEeS5o_vQul06qmg1-vuZzh/view?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">
+                                <b>The Hindu</b>
+                            </a>
+                            and
+                            <a href="https://drive.google.com/file/d/1HUEmSdT-Xl6o5_mC-Tp4VbYbiFlBpvV2/view?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">
+                                <b>Dinamalar</b>
+                            </a>
+                            newspaper of Tamil Nadu, India.
+                        </li>
+
+                        <li>
+                            The same habits that keep me competitive in
+                            <b>cricket "structured practice, analysing weaknesses,
+                                consistent effort, and performing under pressure"</b>
+                            are the principles I carry into my engineering work every day.
+                        </li>
+
+                        <li>
+                            A complete gallery of newspaper features, match photos,
+                            and performance highlights is available through the
+                            <a href="https://drive.google.com/drive/folders/161STAV79DMVYqgQB2pIHMrHA-4GH17bz?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">
+                                <b><u>Gallery Link</u></b>
+                            </a>.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Let's Build Together</h2>
+                <p class="contact-subtitle">
+                    Open to relocation/remote opportunities. Passionate about building reliable systems and shipping
+                    code
+                    that matters.
+                    <b>Let's talk about how I can add value to your team.</b>
+                </p>
+                <div class="contact-methods">
+                    <a href="mailto:srimani.ravikumar@gmail.com" class="contact-link">
+                        <span class="icon">✉️</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p>srimani.ravikumar@gmail.com</p>
+                        </div>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1Zsqb9wWrgk8wKYv53gkVWLEvAdOdfN-4/view?usp=sharing"
+                        target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <span class="icon">📄</span>
+                        <div>
+                            <h4>Resume</h4>
+                            <p>Click here to view my resume...</p>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/in/srimani-ravikumar" target="_blank" rel="noopener noreferrer"
+                        class="contact-link">
+                        <span class="icon">💼</span>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/srimani-ravikumar</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/srimani-ravikumar" target="_blank" rel="noopener noreferrer"
+                        class="contact-link">
+                        <span class="icon">💻</span>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/srimani-ravikumar</p>
+                        </div>
+                    </a>
+                    <a href="https://takeuforward.org/profile/Srimani" target="_blank" rel="noopener noreferrer"
+                        class="contact-link">
+                        <span class="icon">📚</span>
+                        <div>
+                            <h4>TakeUForward</h4>
+                            <p>takeuforward.org/profile/Srimani</p>
+                        </div>
+                    </a>
+                    <a href="https://leetcode.com/u/srimani-ravikumar" target="_blank" rel="noopener noreferrer"
+                        class="contact-link" id="leetcode-contact-link">
+                        <span class="icon">🧩</span>
+                        <div>
+                            <h4>LeetCode</h4>
+                            <p>leetcode.com/srimani-ravikumar</p>
+                        </div>
+                    </a>
+                    <a href="https://medium.com/@srimani.ravikumar" target="_blank" rel="noopener noreferrer"
+                        class="contact-link">
+                        <span class="icon">📝</span>
+                        <div>
+                            <h4>Medium Articles</h4>
+                            <p>medium.com/@srimani.ravikumar</p>
+                        </div>
+                    </a>
+                    <a href="https://substack.com/@srimaniravikumar" target="_blank" rel="noopener noreferrer"
+                        class="contact-link">
+                        <span class="icon">📨</span>
+                        <div>
+                            <h4>Substack Newsletter</h4>
+                            <p>substack.com/@srimaniravikumar</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 Srimani. All rights reserved. Chennai, India</p>
+            </div>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>

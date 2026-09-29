@@ -1335,3 +1335,266 @@ a:hover {
         justify-content: center;
     }
 }
+
+/* ============================================
+   PORTFOLIO MODE STATES (gate / interactive / static)
+   ============================================ */
+
+#authenticity-gate,
+#journey {
+    display: none;
+}
+
+body[data-mode="gate"] #site-content {
+    display: none;
+}
+
+body[data-mode="gate"] #authenticity-gate {
+    display: flex;
+}
+
+body[data-mode="interactive"] #site-content {
+    display: none;
+}
+
+body[data-mode="interactive"] #journey {
+    display: flex;
+}
+
+body[data-mode="static"] #site-content {
+    display: block;
+}
+
+/* ============================================
+   AUTHENTICITY GATE
+   ============================================ */
+
+.gate {
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-secondary);
+    padding: 2rem 1.5rem;
+}
+
+.gate-inner {
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+}
+
+.gate-eyebrow {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+.gate-inner h1 {
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.gate-body {
+    max-width: 60ch;
+    margin: 0 auto 2rem;
+}
+
+.gate-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.gate-actions .btn {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* ============================================
+   INTERACTIVE JOURNEY
+   ============================================ */
+
+.journey {
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-secondary);
+    padding: 2.5rem 1.5rem;
+}
+
+.journey-inner {
+    max-width: 680px;
+    width: 100%;
+}
+
+.journey-progress {
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.journey-step {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.journey-step:focus-visible,
+.gate-inner h1:focus-visible {
+    outline: none;
+}
+
+.journey-eyebrow {
+    color: var(--primary-color);
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.journey-step h2 {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 1.85rem;
+}
+
+.journey-context {
+    max-width: 68ch;
+}
+
+.journey-body {
+    margin-top: 1.5rem;
+}
+
+.journey-body .about-content,
+.journey-body .projects-grid,
+.journey-body .experience-timeline,
+.journey-body .skills-grid,
+.journey-body .certifications-grid,
+.journey-body .education-timeline,
+.journey-body .passion-content {
+    margin-top: 0;
+}
+
+.journey-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.journey-actions [hidden] {
+    display: none;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.link-button:hover,
+.link-button:focus-visible {
+    color: var(--primary-color);
+}
+
+/* "How I Think" content, used only inside the journey */
+.thinking-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.thinking-flow span {
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.thinking-topics details {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.thinking-topics summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.thinking-topics p {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+}
+
+.final-checklist {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.final-checklist li {
+    padding: 0.4rem 0;
+    color: var(--text-secondary);
+}
+
+.final-checklist li::before {
+    content: "✓ ";
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* ============================================
+   ACCESSIBILITY: FOCUS & MOTION
+   ============================================ */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .journey-step {
+        padding: 1.75rem;
+    }
+
+    .gate-inner h1 {
+        font-size: 1.6rem;
+    }
+
+    .journey-step h2 {
+        font-size: 1.4rem;
+    }
+}
