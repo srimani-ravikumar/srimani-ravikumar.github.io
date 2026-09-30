@@ -1,12 +1,16 @@
-# 🚀 Srimani | Software Engineer Portfolio
+# Srimani | Software Engineer Portfolio
 
+Technically
 > Building **reliable systems at scalable** with clean architecture and strong engineering fundamentals.
 
-## 🌐 Live Portfolio
+Functionally
+> Bringing in **clarity and resilience** will be the **topmost priority for me** in this rapidly evolving tech space.
 
-🔗 `https://srimani-ravikumar.github.io/`
+## Live Portfolio
 
-## 📌 About This Project
+ `https://srimani-ravikumar.github.io/`
+
+## About This Project
 
 This is my **personal portfolio website**, designed to clearly communicate:
 
