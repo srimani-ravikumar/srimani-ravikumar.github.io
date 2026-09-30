@@ -1422,6 +1422,13 @@ body[data-mode="static"] #site-content {
     max-width: 420px;
 }
 
+.gate-intro {
+    justify-content: center;
+    border-bottom: none;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0;
+}
+
 /* ============================================
    INTERACTIVE JOURNEY
    ============================================ */
