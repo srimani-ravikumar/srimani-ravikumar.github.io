@@ -14,6 +14,7 @@
     const journeyHeading = document.getElementById('journey-heading');
     const journeyContext = document.getElementById('journey-context');
     const journeyBody = document.getElementById('journey-body');
+    const journeyIntro = document.getElementById('journey-intro');
     const journeyProgressLabel = document.getElementById('journey-progress-label');
     const continueBtn = document.getElementById('journey-continue-btn');
     const revalidateBtn = document.getElementById('journey-revalidate-btn');

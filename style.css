@@ -1462,6 +1462,36 @@ body[data-mode="static"] #site-content {
     outline: none;
 }
 
+.journey-intro {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.journey-intro[hidden] {
+    display: none;
+}
+
+.journey-avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4f46e5;
+    flex-shrink: 0;
+}
+
+.journey-banner {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 0;
+}
+
 .journey-eyebrow {
     color: var(--primary-color);
     font-weight: bolder;
