@@ -21,6 +21,7 @@
     const skipBtn = document.getElementById('journey-skip-btn');
     const gateStaticBtn = document.getElementById('gate-static-btn');
     const gateInteractiveBtn = document.getElementById('gate-interactive-btn');
+    const heroInteractiveBtn = document.getElementById('hero-interactive-btn');
 
     // Steps mirror the order defined in dev_guidelines.md / refined_plan_v2.md
     const steps = [
@@ -162,6 +163,9 @@
     gateStaticBtn.addEventListener('click', enterStatic);
     gateInteractiveBtn.addEventListener('click', enterInteractive);
 
+    // Lets a visitor who chose "static" earlier still opt into the guided journey later.
+    if (heroInteractiveBtn) heroInteractiveBtn.addEventListener('click', enterInteractive);
+
     continueBtn.addEventListener('click', () => {
         if (currentStepIndex < steps.length - 1) {
             currentStepIndex += 1;
@@ -206,9 +210,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
+const navbarEl = document.querySelector('.navbar');
 
 if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
+        if (navbarEl) {
+            // anchor the dropdown just below the navbar's actual rendered position
+            const offset = navbarEl.getBoundingClientRect().bottom + 8;
+            navLinks.style.setProperty('--nav-dropdown-top', `${offset}px`);
+        }
         const isOpen = navLinks.classList.toggle('open');
         navToggle.classList.toggle('open', isOpen);
         navToggle.setAttribute('aria-expanded', String(isOpen));
