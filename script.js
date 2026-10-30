@@ -194,20 +194,7 @@
 })();
 
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+// In-page anchor scrolling is handled by CSS (scroll-behavior + scroll-padding-top).
 
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -259,30 +246,64 @@ document.querySelectorAll('section[id]').forEach(section => {
     observer.observe(section);
 });
 
-// Add animation to elements on scroll
-const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.project-card, .skill-category, .experience-item');
-    
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
-    });
-};
+// Reveal cards once as they enter the viewport; the observer avoids layout reads on every scroll event.
+const REVEAL_SELECTOR = '.project-card, .skill-category, .experience-item, .highlight-card, .cert-card, .edu-item';
+const REVEAL_STAGGER_MS = 80;
+const REVEAL_DURATION_MS = 600;
 
-// Initialize elements with animation properties
-document.querySelectorAll('.project-card, .skill-category, .experience-item').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+const revealObserver = new IntersectionObserver((entries, obs) => {
+    // Cards revealed in the same pass cascade instead of appearing together.
+    let order = 0;
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const card = entry.target;
+        const delay = Math.min(order, 5) * REVEAL_STAGGER_MS;
+        order += 1;
+
+        card.style.transitionDelay = `${delay}ms`;
+        card.classList.add('is-visible');
+        obs.unobserve(card);
+
+        // Clear the delay so hover effects stay instant.
+        setTimeout(() => { card.style.transitionDelay = ''; }, delay + REVEAL_DURATION_MS);
+    });
+}, { rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll(REVEAL_SELECTOR).forEach(element => {
+    element.classList.add('reveal');
+    revealObserver.observe(element);
 });
 
-window.addEventListener('scroll', animateOnScroll);
-animateOnScroll(); // Call once on load
+// Long experience entries show only the top bullets (plus Impact) until expanded.
+const EXP_VISIBLE_BULLETS = 3;
+const EXP_MIN_HIDDEN = 2;
+
+document.querySelectorAll('.experience-content').forEach((card, cardIndex) => {
+    const list = card.querySelector('ul');
+    if (!list) return;
+
+    const extras = Array.from(list.children).filter((li, i) =>
+        i >= EXP_VISIBLE_BULLETS && !li.textContent.trim().startsWith('Impact:'));
+    if (extras.length < EXP_MIN_HIDDEN) return;
+
+    list.id = list.id || `exp-bullets-${cardIndex}`;
+    extras.forEach(li => li.classList.add('exp-extra'));
+    card.classList.add('is-collapsed');
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'exp-toggle';
+    toggle.setAttribute('aria-controls', list.id);
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = `Show ${extras.length} more`;
+    list.after(toggle);
+
+    toggle.addEventListener('click', () => {
+        const expanded = card.classList.toggle('is-collapsed') === false;
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? 'Show less' : `Show ${extras.length} more`;
+    });
+});
 
 // Add active style to current nav link
 const style = document.createElement('style');
