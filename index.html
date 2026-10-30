@@ -228,6 +228,47 @@
                     <!-- Project 1 -->
                     <div class="project-card">
                         <div class="project-header">
+                            <h3>trysmartly.co</h3>
+                            <span class="project-type">Distributed URL Shortener</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/srimani-ravikumar/url-shortener-service#url-shortener-service-trysmartlyco"
+                                target="_blank" rel="noopener noreferrer" class="project-link">Live Link</a>
+
+                            <a href="https://drive.google.com/file/d/1CWCo7h4Tz3Jt-vIf4mk4tioCThDz7pdQ/view?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer" class="project-link">Demo</a>
+                        </div>
+
+                        <ul class="project-description">
+                            <li>A <b>distributed URL shortener service</b> built from scratch with
+                                <b>.NET 10, Cassandra, Redis, Nginx</b>.
+                            </li>
+
+                            <li><b>Redis-cached redirects</b> with <b>p99 of 43 ms</b>, collision-free unique short
+                                codes using a <b>Feistel and Base62</b> code generator, and async click analytics.
+                            </li>
+
+                            <li>Verified with <b>370+ automated tests</b>, load-balanced failover
+                                (<b>300/300 redirects with one node down</b>), and
+                                <b>OpenTelemetry and Grafana</b> observability.
+                            </li>
+                        </ul>
+
+                        <div class="project-tech">
+                            <span class="tech-tag">.NET 10</span>
+                            <span class="tech-tag">Cassandra</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">Nginx</span>
+                            <span class="tech-tag">Distributed Systems</span>
+                            <span class="tech-tag">OpenTelemetry</span>
+                            <span class="tech-tag">Grafana</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-header">
                             <h3>SmartLogger</h3>
                             <span class="project-type">Project focused on observability</span>
                         </div>
@@ -246,19 +287,16 @@
                                 framework.
                             </li>
 
-                            <li>Supports multiple destinations including <b>Console, FileSystem, Custom Sinks etc..
-                                </b>
-                                with formats including <b>JSON, Plain Text, Custom Formats etc..</etc></b>.</li>
+                            <li>Destinations include <b>Console, File, remote LogAggregator etc.</b>
+                                Formats include <b>plain text, JSON etc.</b>
+                            </li>
 
-                            <li>Implemented <b>correlation-based request tracing</b> with focus on
-                                <b>thread safety</b>, build tool support, and comprehensive documentation.
+                            <li><b>Correlation-based request tracing</b>, <b>thread safety</b>, build tool support,
+                                and a documentation guide.
                             </li>
                         </ul>
 
                         <div class="project-tech">
-                            <span class="tech-tag">Structured Logging</span>
-                            <span class="tech-tag">Distributed Tracing</span>
-                            <span class="tech-tag">Background Processing</span>
                             <span class="tech-tag">Observability</span>
                             <span class="tech-tag">Concurrency</span>
                             <span class="tech-tag">Thread Safety</span>
@@ -300,28 +338,50 @@
                                 – Boston, US (Contract)
                             </p>
 
-                            <p><b>Norway Customer</b></p>
+                            <p>
+                                <b>Customer:</b>
+                                <a href="https://www.posten.no/" target="_blank" rel="noopener noreferrer">
+                                    Norway Customer
+                                </a>
+                            </p>
 
                             <ul>
                                 <li>
                                     Designed and implemented
                                     <b>MarketPay Payment App-to-App Integration</b>,
-                                    Auth service, and robust error handling
+                                    Auth service, and robust error handling with
+                                    <b>PCI-DSS compliance</b> in place, which served as
+                                    <b>60% payment option</b> by end users
                                 </li>
                                 <li>
-                                    Engineered
-                                    <b>Norway Track & Trace System Integration</b>
-                                    via Delivery Export Agent
+                                    Integrated Norway's
+                                    <b>Parcel Hub System</b> with the POS solution using
+                                    <b>Kafka-based asynchronous messaging</b>, improving event-processing
+                                    throughput by <b>20%</b> compared with the previous synchronous
+                                    API-to-API architecture
                                 </li>
                                 <li>
-                                    Engineered
-                                    <b>Android (IPC) AppSwitch integration</b>
-                                    between Norway's ShopApp and Escher's SalesApp
+                                    Enhanced the mission-critical
+                                    <b>Customs Declaration &rarr; HSCode Lookup and validation</b>
+                                    process of postal systems by integrating with
+                                    <a href="https://zonos.com/developer" target="_blank" rel="noopener noreferrer">
+                                        Zonos GraphQL APIs</a>,
+                                    which reduces manual data entry by <b>80%</b>
                                 </li>
                                 <li>
-                                    Integrated
-                                    <b>BPD Pricing Engine</b>
-                                    into POS shipping workflows
+                                    Automated pricing updates using
+                                    <b>BPD (Business Product Data) Pricing Engine</b>
+                                    integration into POS shipping workflows using a
+                                    <b>background scheduler worker</b>, eliminating manual CSV preparation
+                                    and server uploads by postal operators
+                                </li>
+                                <li>
+                                    Contributed to
+                                    <b>Android Inter-Process Communication (IPC) AppSwitch Integration</b>
+                                    between Norway's ShopApp and Escher's SalesApp, to address the lack of
+                                    payment support, enabling seamless access to payment processing and
+                                    accounting functionalities and streamlining the ShopApp's parcel pickup
+                                    workflow
                                 </li>
                                 <li>
                                     <b>Impact:</b>
@@ -527,6 +587,7 @@
                         <div class="skill-tags">
                             <span>SQL Server</span>
                             <span>MongoDB</span>
+                            <span>Cassandra</span>
                             <span>Query Optimization</span>
                         </div>
                     </div>
@@ -822,7 +883,7 @@
                             <p>srimani.ravikumar@gmail.com</p>
                         </div>
                     </a>
-                    <a href="https://drive.google.com/file/d/1AelNCIrz-pc8QPOJdot1NGdvP6svwqqA/view?usp=sharing"
+                    <a href="https://drive.google.com/file/d/1c3exAp-Fgjn_O7zyx-sH29RTixq4E6Ap/view?usp=sharing"
                         target="_blank" rel="noopener noreferrer" class="contact-link">
                         <span class="icon">📄</span>
                         <div>

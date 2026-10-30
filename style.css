@@ -636,6 +636,19 @@ a:hover {
     color: #007bff;
 }
 
+/* Non-company links inside experience cards: blue + underlined */
+.experience-content li a,
+.experience-content p:not(.company) a {
+    color: #007bff;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.experience-content li a:hover,
+.experience-content p:not(.company) a:hover {
+    color: #0056b3;
+}
+
 /* ============================================
    CERTIFICATIONS SECTION
    ============================================ */
